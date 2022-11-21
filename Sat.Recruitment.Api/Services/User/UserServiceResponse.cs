@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using Sat.Recruitment.Api.Services;
 
 namespace Sat.Recruitment.Api.Services.User;
 
