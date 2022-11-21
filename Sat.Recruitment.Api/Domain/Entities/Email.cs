@@ -21,9 +21,9 @@ public class Email
     private static string NormalizeEmail(string email)
     {
         var emailSplit = email.Split(new[] {'@'}, StringSplitOptions.RemoveEmptyEntries);
-        
+
         var formattedFirstPortion = Regex.Replace(emailSplit[0], @"[+.]+", "");
-        
+
         return string.Join("@", formattedFirstPortion, emailSplit[1]);
     }
 }

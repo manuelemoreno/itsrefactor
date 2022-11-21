@@ -1,12 +1,14 @@
 ﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Sat.Recruitment.Api.Controllers.Requests;
+using Sat.Recruitment.Api.Filters;
 using Sat.Recruitment.Api.Services.User;
 
 namespace Sat.Recruitment.Api.Controllers;
 
 [ApiController]
 [Route("[controller]")]
+[ApiAuthorization]
 public class UsersController : ControllerBase
 {
     public readonly IUserService UserService;
