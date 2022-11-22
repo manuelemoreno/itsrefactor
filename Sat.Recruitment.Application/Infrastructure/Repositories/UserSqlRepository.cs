@@ -1,7 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Options;
 using Sat.Recruitment.Application.Infrastructure.Repositories.Interfaces;
-using Sat.Recruitment.Domain.Configuration;
 using Sat.Recruitment.Infrastructure;
 using Sat.Recruitment.Infrastructure.Dtos;
 
@@ -14,9 +12,7 @@ public class UserSqlRepository : IUserRepository
     public UserSqlRepository()
     {
         _applicationDbContext = new ApplicationDbContext();
-
     }
-
 
     public async Task<List<UserDto>> GetAll()
         => await _applicationDbContext.User.ToListAsync();
@@ -25,7 +21,5 @@ public class UserSqlRepository : IUserRepository
     {
         _applicationDbContext.User.Add(userDto);
         await _applicationDbContext.SaveChangesAsync();
-
     }
-
 }

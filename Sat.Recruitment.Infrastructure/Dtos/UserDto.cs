@@ -20,14 +20,13 @@ public class UserDto
         GiftedAmount = giftedAmount;
     }
 
-    public UserDto(){}
-
+    public UserDto() { }
     public int Id { get; set; }
     public string Name { get; set; }
     public string Email { get; set; }
     public string Address { get; set; }
-    public string Phone { get; set;  }
-    public string UserType { get; set;  }
-    public decimal OriginalMoney { get; set;  }
-    public decimal GiftedAmount { get; set;   }
+    public string Phone { get; set; }
+    public string UserType { get; set; }
+    public decimal OriginalMoney { get; set; }
+    public decimal GiftedAmount { get; set; }
 }

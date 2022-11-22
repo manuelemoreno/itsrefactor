@@ -4,3 +4,6 @@ Agustina,Agustina@gmail.com,+534645213542,Garay y Otra Calle,SuperUser,112234,22
 Manuel,manuelmoreno2@gmail.com,+5078889966,Panama,SuperUser,124,24.8
 Manuel2,manuelmoreno3@gmail.com,+5078889967,Panama2,SuperUser,125,25.0
 Manuelasdfsf,manuelmorenoff2@gmail.com,+5078889966fff,Panama,SuperUser,124,24.8
+Manuel2222,manuelmoreno2222@gmail.com,+5078889966222,Panama,SuperUser,124,24.8
+AManuel,amanuelmoreno2@gmail.com,+5078889966a,Panama,SuperUser,124,24.8
+Manuel22331,manuelwmoreno2222@gmail.com,+5072888992266,Panama,SuperUser,124,24.8

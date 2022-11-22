@@ -4,21 +4,25 @@ using System.Linq;
 using System.Threading.Tasks;
 using FluentAssertions;
 using Moq;
-using Sat.Recruitment.Infrastructure.Dtos;
 using Sat.Recruitment.Application.Infrastructure.Repositories.Interfaces;
 using Sat.Recruitment.Application.Services.User;
 using Sat.Recruitment.Domain.Enums;
+using Sat.Recruitment.Infrastructure.Dtos;
 using Xunit;
+using Microsoft.Extensions.Logging;
 
 namespace Sat.Recruitment.UnitTests.Services;
 
 public class UsersServiceUnitTests
 {
     private readonly Mock<IUserRepository> _userRepositoryMock;
+    private readonly Mock<ILogger<UserService>> _loggerMock;
+    
 
     public UsersServiceUnitTests()
     {
         _userRepositoryMock = new Mock<IUserRepository>();
+        _loggerMock = new Mock<ILogger<UserService>>();
     }
 
     [Fact]
@@ -46,7 +50,7 @@ public class UsersServiceUnitTests
         _userRepositoryMock.Setup(x => x.SaveUser(It.IsAny<UserDto>()));
 
 
-        var userService = new UserService(_userRepositoryMock.Object);
+        var userService = new UserService(_loggerMock.Object, _userRepositoryMock.Object);
 
         // Act
         var result = await userService.CreateUser(userServiceRequestStub);
@@ -81,7 +85,7 @@ public class UsersServiceUnitTests
         _userRepositoryMock.Setup(x => x.SaveUser(It.IsAny<UserDto>()));
 
 
-        var userService = new UserService(_userRepositoryMock.Object);
+        var userService = new UserService(_loggerMock.Object, _userRepositoryMock.Object);
 
         // Act
         var result = await userService.CreateUser(userServiceRequestStub);
@@ -117,7 +121,7 @@ public class UsersServiceUnitTests
         _userRepositoryMock.Setup(x => x.SaveUser(It.IsAny<UserDto>()));
 
 
-        var userService = new UserService(_userRepositoryMock.Object);
+        var userService = new UserService(_loggerMock.Object, _userRepositoryMock.Object);
 
         // Act
         var result = await userService.CreateUser(userServiceRequestStub);
@@ -153,7 +157,7 @@ public class UsersServiceUnitTests
         _userRepositoryMock.Setup(x => x.SaveUser(It.IsAny<UserDto>()));
 
 
-        var userService = new UserService(_userRepositoryMock.Object);
+        var userService = new UserService(_loggerMock.Object, _userRepositoryMock.Object);
 
         // Act
         var result = await userService.CreateUser(userServiceRequestStub);
@@ -189,7 +193,7 @@ public class UsersServiceUnitTests
         _userRepositoryMock.Setup(x => x.SaveUser(It.IsAny<UserDto>()));
 
 
-        var userService = new UserService(_userRepositoryMock.Object);
+        var userService = new UserService(_loggerMock.Object, _userRepositoryMock.Object);
 
         // Act
         var result = await userService.CreateUser(userServiceRequestStub);

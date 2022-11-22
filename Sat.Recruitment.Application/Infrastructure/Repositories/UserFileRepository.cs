@@ -1,6 +1,6 @@
 ﻿using System.Globalization;
-using Sat.Recruitment.Infrastructure.Dtos;
 using Sat.Recruitment.Application.Infrastructure.Repositories.Interfaces;
+using Sat.Recruitment.Infrastructure.Dtos;
 
 namespace Sat.Recruitment.Application.Infrastructure.Repositories;
 

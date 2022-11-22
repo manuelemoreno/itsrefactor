@@ -1,16 +1,19 @@
-﻿using Sat.Recruitment.Infrastructure.Dtos;
+﻿using Microsoft.Extensions.Logging;
 using Sat.Recruitment.Application.Infrastructure.Repositories.Interfaces;
 using Sat.Recruitment.Application.Result;
 using Sat.Recruitment.Domain.Exceptions;
+using Sat.Recruitment.Infrastructure.Dtos;
 
 namespace Sat.Recruitment.Application.Services.User;
 
 public class UserService : IUserService
 {
     public readonly IUserRepository UserRepository;
+    private readonly ILogger _logger;
 
-    public UserService(IUserRepository userRepository)
+    public UserService(ILogger<UserService> logger, IUserRepository userRepository)
     {
+        _logger = logger;
         UserRepository = userRepository;
     }
 
@@ -18,7 +21,8 @@ public class UserService : IUserService
     {
         try
         {
-            var createUser = CreateUsersResult.Create(userServiceRequest);
+            _logger.LogInformation("CreateUserResult");
+        var createUser = CreateUsersResult.Create(userServiceRequest);
 
             if (!createUser.IsSuccess)
                 throw new CreateUserException(createUser.Errors);
@@ -26,6 +30,7 @@ public class UserService : IUserService
             if (await IsDuplicateUser(createUser.User))
                 throw new DuplicateUserException();
 
+            _logger.LogInformation("SaveUser");
             SaveUser(createUser.User);
 
             return new UserServiceResponse(true, new List<string>(), createUser.User);
@@ -33,11 +38,13 @@ public class UserService : IUserService
 
         catch (CreateUserException e)
         {
+            _logger.LogError("User has multiple errors in the model request");
             return new UserServiceResponse(false, e.Errors, null);
         }
 
         catch (DuplicateUserException e)
         {
+            _logger.LogError("User already exists");
             var error = new List<string>();
             error.Add(e.Message);
             return new UserServiceResponse(false, error, null);
@@ -45,7 +52,7 @@ public class UserService : IUserService
 
         catch (Exception e)
         {
-            //Log Error Message 
+            _logger.LogError(e.Message);
             var error = new List<string>();
             error.Add("Unknown Error. Please Contact Support");
             return new UserServiceResponse(false, error, null);
