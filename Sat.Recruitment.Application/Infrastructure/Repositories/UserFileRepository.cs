@@ -1,12 +1,12 @@
 ﻿using System.Globalization;
-using Sat.Recruitment.Application.Repositories.Interfaces;
-using Sat.Recruitment.Application.Repositories.Dtos;
+using Sat.Recruitment.Infrastructure.Dtos;
+using Sat.Recruitment.Application.Infrastructure.Repositories.Interfaces;
 
-namespace Sat.Recruitment.Application.Repositories;
+namespace Sat.Recruitment.Application.Infrastructure.Repositories;
 
-public class UserTextFileRepository : IUserRepository
+public class UserFileRepository : IUserRepository
 {
-    private const string UserFilePath = "/Files/Users.txt";
+    private const string UserFilePath = "/../Sat.Recruitment.Infrastructure/FileBasedDBs/Users.txt";
 
     public async Task<List<UserDto>> GetAll()
     {

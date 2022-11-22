@@ -1,5 +1,6 @@
-﻿namespace Sat.Recruitment.Application.Repositories.Dtos;
+﻿namespace Sat.Recruitment.Infrastructure.Dtos;
 
+#nullable disable
 public class UserDto
 {
     public UserDto(string name,
@@ -19,11 +20,14 @@ public class UserDto
         GiftedAmount = giftedAmount;
     }
 
-    public string Name { get; }
-    public string Email { get; }
-    public string Address { get; }
-    public string Phone { get; }
-    public string UserType { get; }
-    public decimal OriginalMoney { get; }
-    public decimal GiftedAmount { get; }
+    public UserDto(){}
+
+    public int Id { get; set; }
+    public string Name { get; set; }
+    public string Email { get; set; }
+    public string Address { get; set; }
+    public string Phone { get; set;  }
+    public string UserType { get; set;  }
+    public decimal OriginalMoney { get; set;  }
+    public decimal GiftedAmount { get; set;   }
 }

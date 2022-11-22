@@ -1,5 +1,5 @@
-﻿using Sat.Recruitment.Application.Repositories.Interfaces;
-using Sat.Recruitment.Application.Repositories.Dtos;
+﻿using Sat.Recruitment.Infrastructure.Dtos;
+using Sat.Recruitment.Application.Infrastructure.Repositories.Interfaces;
 using Sat.Recruitment.Application.Result;
 using Sat.Recruitment.Domain.Exceptions;
 
